@@ -498,6 +498,8 @@ h2 {
 
 .testimonial-card .quote {
     font-size: 0.95rem;
+    font-style: italic;
+    color: #444;
     -webkit-line-clamp: 3;
     line-clamp: 3;
     display: -webkit-box;
@@ -569,5 +571,6 @@ footer {
   color: #fff;
   text-align: center;
 }
+
 
 
