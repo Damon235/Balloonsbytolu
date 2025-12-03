@@ -1,0 +1,549 @@
+/* ------------------------------
+   CORE VARIABLES
+------------------------------ */
+:root {
+  --primary: #1a1a1a;
+  --accent: #f6c343;
+  --bg: black;
+  --light: #fafafa;
+ /* AnneCreates uses wide layout */
+}
+
+/* Remove all global margins */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Full width body */
+body {
+  font-family: "Poppins", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ------------------------------
+   NAVBAR — AnneCreates Style
+------------------------------ */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.3rem 1.5rem;
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  border-bottom: 1px solid #eee;
+}
+
+.logo{
+  width: 4%;      /* size */
+  height: 4%;     /* same as width */
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+ .logo{
+  width: 8%;      /* size */
+  height: 8%;     /* same as width */
+  border-radius: 50%;
+  object-fit: cover;
+}
+}
+
+nav h1 {
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+nav ul {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--primary);
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: var(--accent);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+/* ------------------------------
+   HERO SECTION (full width)
+------------------------------ */
+.hero-carousel {
+  width: 100%;
+  height: 120vh;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+  padding-top: 0;
+   z-index: 1;
+}
+
+.hero-carousel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.35);
+  z-index: 1;
+}
+
+.hero-carousel {
+  position: relative;
+  z-index: 1;
+}
+
+p3 {
+  font-family: "Domine", Sans-serif;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 2.4px;
+  text-shadow: -1px 1px 0px #e3bf66;
+  color: #FFFFFF;
+}
+
+h4 {
+  font-family: "Poppins", Sans-serif;
+  font-size: 1.8em;
+  font-weight: 600;
+  letter-spacing: 10px;
+  word-spacing: 3px;
+  text-shadow: -1px 1px 0px #000000;
+  color: #FFFFFF;
+}
+
+.divider {
+  position: relative;
+  z-index: 10;      /* always above carousel */
+  margin-top: -50px; /* overlap amount */
+}
+
+svg.divider {
+  width: 100%;
+  height: 120px;
+  display: block;
+  margin-top: -60px; /* adjust overlap */
+}
+
+
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+  animation: zoomIn 9s ease-in-out forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(1); }
+  to { transform: scale(1.15); }
+}
+
+.carousel-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  text-align: center;
+  color: #fff;
+  width: 90%;
+  max-width: 700px;
+}
+
+.carousel-overlay h2 {
+  font-size: 3.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.carousel-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+}
+
+.carousel,
+.carousel-inner,
+.carousel-item {
+  height: 100vh;       /* full viewport height */
+  width: 100vw;        /* full width */
+}
+
+.carousel-item img {
+  object-fit: cover;   /* zoom + crop like AnneCreates */
+  width: 100%;
+  height: 100%;
+}
+
+
+/* AnneCreates button style */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: #111;
+  padding: 0.9rem 2rem;
+  border-radius: 3px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #e0ae36;
+}
+
+/* ------------------------------
+   PAGE SECTIONS
+------------------------------ */
+section {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 7rem 3rem;
+  text-align: center;
+}
+
+section p {
+  color: white;
+}
+
+.about {
+  background-color: black;
+}
+
+h2 {
+  font-family: "Cinzel Decorative", serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 0.4em;
+  color: #e3bf66;
+    text-shadow: -1px 1px 0px black;
+}
+
+/* ------------------------------
+   GRID (Work & Services)
+------------------------------ */
+
+.services {
+  position: relative;
+  overflow: hidden;
+  color: #f6ebd6;        /* gold-friendly text */
+  padding: 6rem 2rem;
+}
+
+/* make the inline SVG act as a full-cover background */
+.services > svg.gold-balloon-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.services *:not(svg) {
+  position: relative;
+  z-index: 2; /* ensures all real content sits ABOVE the svg */
+}
+
+/* content above the SVG */
+.services .services-inner {
+  position: relative;
+  z-index: 2;
+}
+
+/* tweak typography for readability */
+.services .card { color: white; }
+.services h2{
+ color: #e3bf66;
+ font-size: 2.4rem;
+} 
+
+.services h3, .services p{
+  color: black;
+}
+
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  gap: 3rem;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+.card {
+  background: var(--light);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+
+/* works */
+
+.showcase-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.showcase-section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 2rem;
+}
+
+.showcase-heading {
+  text-align: center;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.showcase-frame {
+  position: relative;
+  background: black;
+  padding: 2rem;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+/* Confetti */
+.showcase-confetti {
+  position: absolute;
+  width: 120px;
+  opacity: 0.85;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.showcase-confetti.tl { top: -10px; left: -10px; width: 230px; }
+.showcase-confetti.tr { top: -10px; right: -10px; width: 210px; }
+.showcase-confetti.bl { bottom: -10px; left: -10px; width: 190px; }
+.showcase-confetti.br { bottom: -10px; right: -10px; width: 240px; }
+
+.showcase-viewport {
+  position: relative;
+  z-index: 10;
+}
+
+.showcase-track {
+  display: flex;
+  gap: 1rem;
+  transition: transform 0.6s ease;
+  will-change: transform;
+}
+
+.showcase-item {
+  flex: 0 0 calc((80% - 2rem) / 3);
+  background: #111;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .showcase-item {
+    flex: 0 0 calc(50% - 1.5rem);
+    padding: 0.1rem;
+  }
+}
+
+.showcase-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-caption {
+  position: absolute;
+  bottom: 10px;
+  left: 12px;
+  background: rgba(0,0,0,0.45);
+  color: #fff;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+/* Arrows */
+.showcase-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: black;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  cursor: pointer;
+  z-index: 3;
+}
+
+.showcase-arrow.left { left: 12px; }
+.showcase-arrow.right { right: 12px; }
+
+.showcase-auto {
+  display: block;
+  margin-top: 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+/* what clients say section*/
+
+.testimonials {
+  padding: 0rem 2rem;
+  text-align: center;
+}
+
+.testimonials h2 {
+  font-size: 2.4rem;
+  margin-bottom: 3rem;
+  color: #b38a3f;
+  font-weight: 600;
+}
+
+/* ---------- DESKTOP (GRID) ---------- */
+.testimonials-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-track {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.5rem;
+  align-items: start;
+}
+
+/* Testimonial Card Style */
+.testimonial-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px #b38a3f;
+}
+
+.testimonial-card .quote {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+  font-style: italic;
+  color: #444;
+  max-height: 140px; 
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of visible lines */
+  -webkit-box-orient: vertical;
+}
+
+.testimonial-card .author {
+  font-weight: 600;
+  color: #b38a3f;
+}
+
+ .testimonial-card details summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 0;
+    color: inherit;
+    font-weight: 500;
+  }
+
+  /* Remove default arrow marker */
+  .testimonial-card details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Remove underline from summary text */
+  .testimonial-card details summary {
+    text-decoration: none;
+  }
+ .quote-short p, .quote-full p { 
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 1.1rem;
+  font-style: italic;
+  color: #000000;
+ }
+
+
+/* ---------- MOBILE (SLIDER) ---------- */
+@media (max-width: 700px) {
+
+  .testimonials-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 1.4rem;
+    padding-bottom: 1rem;
+    scrollbar-width: none;
+  }
+
+  .testimonials-track::-webkit-scrollbar { display: none; }
+
+  .testimonial-card {
+    flex: 0 0 85%;     /* card is big (like AnneCreates) */
+    scroll-snap-align: center;
+  }
+}
+
+
+
+
+/* ------------------------------
+   FOOTER
+------------------------------ */
+footer {
+  padding: 3rem 1rem;
+  background: #111;
+  color: #fff;
+  text-align: center;
+}
