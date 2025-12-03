@@ -93,6 +93,31 @@ nav a:hover::after {
   width: 100%;
 }
 
+@media (max-width: 900px) {
+
+  /* Hide the menu list */
+  nav ul {
+    display: none;
+  }
+
+  /* Center the logo */
+  nav {
+    justify-content: center; /* center everything */
+  }
+
+  /* Keep hamburger button on the right side */
+  .nav-toggle {
+    display: flex;
+    position: absolute;
+    right: 1.5rem;
+  }
+
+  /* Make sure logo stays centered and not pushed */
+  .logo {
+    margin: 0 auto;
+  }
+}
+
 /* ------------------------------
    HERO SECTION (full width)
 ------------------------------ */
@@ -480,7 +505,10 @@ h2 {
   max-height: 140px; 
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3; /* number of visible lines */
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+   line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
@@ -547,3 +575,4 @@ footer {
   color: #fff;
   text-align: center;
 }
+
