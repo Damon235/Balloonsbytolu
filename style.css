@@ -322,19 +322,26 @@ h2 {
   color: black;
 }
 
-
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 }
 
-@media (max-width: 900px) {
+/* Medium screens → 2 columns */
+@media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* Mobile → 1 column */
+@media (max-width: 700px) {
+  .grid {
+     grid-template-columns: repeat(2, 1fr);
+     gap: 1.5rem;
+  }
+}
 
 .card {
   background: var(--light);
@@ -571,6 +578,7 @@ footer {
   color: #fff;
   text-align: center;
 }
+
 
 
 
