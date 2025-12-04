@@ -541,7 +541,8 @@ h2 {
   line-height: 1.6;
   margin-bottom: 1.1rem;
   font-style: italic;
-  color: #000000;
+  color: #000000 !important;
+;
  }
 
 
@@ -578,6 +579,7 @@ footer {
   color: #fff;
   text-align: center;
 }
+
 
 
 
