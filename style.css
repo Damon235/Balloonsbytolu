@@ -51,8 +51,8 @@ nav {
 
 @media (max-width: 900px) {
  .logo{
-  width: 8%;      /* size */
-  height: 8%;     /* same as width */
+  width: 12%;      /* size */
+  height: 12%;     /* same as width */
   border-radius: 50%;
   object-fit: cover;
 }
@@ -282,15 +282,20 @@ h2 {
 /* ------------------------------
    GRID (Work & Services)
 ------------------------------ */
-
 .services {
   position: relative;
   overflow: hidden;
-  color: #f6ebd6;        /* gold-friendly text */
+  color: #f6ebd6;
   padding: 6rem 2rem;
 }
 
-/* make the inline SVG act as a full-cover background */
+/* new — fixes layout */
+.services .services-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
 .services > svg.gold-balloon-bg {
   position: absolute;
   inset: 0;
@@ -302,23 +307,16 @@ h2 {
 
 .services *:not(svg) {
   position: relative;
-  z-index: 2; /* ensures all real content sits ABOVE the svg */
-}
-
-/* content above the SVG */
-.services .services-inner {
-  position: relative;
   z-index: 2;
 }
 
-/* tweak typography for readability */
-.services .card { color: white; }
-.services h2{
- color: #e3bf66;
- font-size: 2.4rem;
-} 
+.services h2 {
+  color: #e3bf66;
+  font-size: 2.4rem;
+}
 
-.services h3, .services p{
+.services h3,
+.services p {
   color: black;
 }
 
@@ -328,18 +326,18 @@ h2 {
   gap: 3rem;
 }
 
-/* Medium screens → 2 columns */
+/* Medium screens */
 @media (max-width: 1100px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
-/* Mobile → 1 column */
+/* Mobile */
 @media (max-width: 700px) {
   .grid {
-     grid-template-columns: repeat(2, 1fr);
-     gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
   }
 }
 
@@ -354,6 +352,8 @@ h2 {
 .card:hover {
   transform: translateY(-6px);
 }
+
+
 
 
 /* works */
@@ -579,6 +579,7 @@ footer {
   color: #fff;
   text-align: center;
 }
+
 
 
 
